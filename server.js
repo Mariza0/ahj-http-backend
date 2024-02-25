@@ -107,7 +107,7 @@ app.use((ctx, next) => {
 });
 
 app.use((ctx, next) => {
-    ctx.response.set('Access-Control-Allow-Origin', 'https://mariza0.github.io');
+    ctx.response.set('Access-Control-Allow-Origin', 'https://mariza0.github.io/ahj-http-frontend/');
     ctx.response.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     ctx.response.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     return next();
