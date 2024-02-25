@@ -48,6 +48,7 @@ app.use((ctx, next) => {
         // Разрешаем запросы от первого источника
         ctx.response.set('Access-Control-Allow-Origin', '*');//'https://mariza0.github.io/ahj-http-frontend/');
         ctx.response.set('Access-Control-Allow-Methods', 'DELETE, PUT, PATCH, GET, POST');
+        ctx.response.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         ctx.response.status = 204;
     });
 
