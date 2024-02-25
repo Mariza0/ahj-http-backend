@@ -52,28 +52,28 @@ app.use(koaBody({
 //   next();
 // });
 
-app.use((ctx, next) => {  
+// app.use((ctx, next) => {  
 
-    if (ctx.request.url === '/') {
+//     if (ctx.request.url === '/') {
 
-        ctx.response.set('Access-Control-Allow-Origin', '*');
-        ctx.response.body = 'Hello, World!';
-        return;
-      }
+//         ctx.response.set('Access-Control-Allow-Origin', '*');
+//         ctx.response.body = 'Hello, World!';
+//         return;
+//       }
 
-    if (ctx.request.method !== 'OPTIONS') {
-        next();
-        return;
-    }
+//     if (ctx.request.method !== 'OPTIONS') {
+//         next();
+//         return;
+//     }
 
-    ctx.response.set('Access-Control-Allow-Origin', 'https://mariza0.github.io/ahj-http-frontend/');
-    ////
-    ///ctx.response.set("Access-Control-Allow-Origin", "https://mariza0.github.io/ahj-http-frontend/");
-    ////
-    ctx.response.set('Access-Control-Allow-Methods', 'DELETE, PUT, PATCH, GET, POST');
-    ctx.response.status = 204;
-    // next();
-});
+//     ctx.response.set('Access-Control-Allow-Origin', 'https://mariza0.github.io/ahj-http-frontend/');
+//     ////
+//     ///ctx.response.set("Access-Control-Allow-Origin", "https://mariza0.github.io/ahj-http-frontend/");
+//     ////
+//     ctx.response.set('Access-Control-Allow-Methods', 'DELETE, PUT, PATCH, GET, POST');
+//     ctx.response.status = 204;
+//     // next();
+// });
 
 
 /////
@@ -96,6 +96,22 @@ app.use((ctx, next) => {
 
 
 //////
+
+app.use((ctx, next) => {  
+
+    if (ctx.request.url === '/') {
+
+        ctx.response.set('Access-Control-Allow-Origin', '*');
+        ctx.response.body = 'Hello, World!';
+        return;
+      }
+});
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://mariza0.github.io/ahj-http-frontend/");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 
 app.use(async ctx => {
