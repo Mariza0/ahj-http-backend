@@ -45,16 +45,17 @@ app.use((ctx, next) => {
     }
 
 
-    app.use((ctx, next) => {
-        // Разрешаем запросы от первого источника
-        ctx.response.set('Access-Control-Allow-Origin', '*');//'https://mariza0.github.io/ahj-http-frontend/');
-        ctx.response.set('Access-Control-Allow-Methods', 'DELETE, PUT, PATCH, GET, POST');
-        ctx.response.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-        ctx.response.status = 204;
-    });
+    // app.use((ctx, next) => {
+    //     // Разрешаем запросы от первого источника
+    //     ctx.response.set('Access-Control-Allow-Origin', '*');//'https://mariza0.github.io/ahj-http-frontend/');
+    //     ctx.response.set('Access-Control-Allow-Methods', 'DELETE, PUT, PATCH, GET, POST');
+    //     ctx.response.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    //     ctx.response.status = 204;
+    // });
 
     app.use((ctx, next) => {
     ctx.response.set('Access-Control-Allow-Origin', 'http://localhost:8080');
+    ctx.response.set('Access-Control-Allow-Methods', 'DELETE, PUT, PATCH, GET, POST');
     ctx.response.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
