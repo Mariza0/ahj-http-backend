@@ -48,6 +48,19 @@ app.use((ctx, next) => {
     ctx.response.status = 204;
 }); 
 
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", "https://mariza0.github.io/ahj-ws-frontend/");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
+
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "http://localhost:8080/");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
+
+
 app.use(async ctx => {
     const method  = ctx.request.query.method;
     console.log(method, 'method')
