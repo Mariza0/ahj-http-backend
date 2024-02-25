@@ -96,6 +96,16 @@ app.use(koaBody({
 
 
 //////
+app.use((ctx, next) => {  
+
+    if (ctx.request.url === '/') {
+
+        ctx.response.set('Access-Control-Allow-Origin', '*');
+        ctx.response.body = 'Hello, World!';
+        return;
+      }
+});
+
 app.use((ctx, next) => {
     ctx.response.set('Access-Control-Allow-Origin', 'https://mariza0.github.io');
     ctx.response.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -123,7 +133,7 @@ app.use((ctx, next) => {
 app.use(async ctx => {
     const method  = ctx.request.query.method;
     console.log(method, 'запрошен method')
-    console.log(ctx.request, 'ctx.request')
+    console.log(ctx.request.query, 'ctx.request')
 
     switch (method) {
 
