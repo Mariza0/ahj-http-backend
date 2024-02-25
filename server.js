@@ -122,7 +122,8 @@ app.use((ctx, next) => {
 
 app.use(async ctx => {
     const method  = ctx.request.query.method;
-    console.log(method, 'method')
+    console.log(method, 'запрошен method')
+    console.log(ctx.request, 'ctx.request')
 
     switch (method) {
 
