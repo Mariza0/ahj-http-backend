@@ -66,20 +66,39 @@ app.use((ctx, next) => {
         return;
     }
 
-    ctx.response.set('Access-Control-Allow-Origin', 'http://localhost:8080/');
-    ////
-    ///ctx.response.set("Access-Control-Allow-Origin", "https://mariza0.github.io/ahj-http-frontend/");
-    ////
-    ctx.response.set('Access-Control-Allow-Methods', 'DELETE, PUT, PATCH, GET, POST');
-    ctx.response.status = 204;
+    // ctx.response.set('Access-Control-Allow-Origin', 'http://localhost:8080/');
+    // ////
+    // ///ctx.response.set("Access-Control-Allow-Origin", "https://mariza0.github.io/ahj-http-frontend/");
+    // ////
+    // ctx.response.set('Access-Control-Allow-Methods', 'DELETE, PUT, PATCH, GET, POST');
+    // ctx.response.status = 204;
+    next();
+});
+
+
+/////
+
+
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "https://mariza0.github.io/ahj-ws-frontend/");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
+app.use((ctx, next) => {
+    ctx.response.set("Access-Control-Allow-Origin", "https://mariza0.github.io/ahj-ws-frontend/");
+    ctx.response.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
 });
 
 app.use((ctx, next) => {
-    ctx.response.set("Access-Control-Allow-Origin", "https://mariza0.github.io/ahj-http-frontend/");
-    ctx.response.set('Access-Control-Allow-Methods', 'DELETE, PUT, PATCH, GET, POST');
-    ctx.response.status = 204;
+    ctx.response.set("Access-Control-Allow-Origin", "http://localhost:8080/");
+    ctx.response.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
+
+
+//////
 
 
 app.use(async ctx => {
