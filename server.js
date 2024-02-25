@@ -30,28 +30,6 @@ app.use(koaBody({
     multipart: true,
 }));
 
-app.use((ctx, next) => {  
-
-    if (ctx.request.url === '/') {
-
-        ctx.response.set('Access-Control-Allow-Origin', '*');
-        ctx.response.body = 'Hello, World!';
-        return;
-      }
-});
-
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://mariza0.github.io/ahj-http-frontend/");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
-
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:8080/");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-
 // app.use((ctx, next) => {  
 
 //     if (ctx.request.url === '/') {
@@ -60,27 +38,40 @@ app.use(function(req, res, next) {
 //         ctx.response.body = 'Hello, World!';
 //         return;
 //       }
+// });
 
-//     if (ctx.request.method !== 'OPTIONS') {
-//         next();
-//         return;
-//     }
-//     ctx.response.set('Access-Control-Allow-Origin', '*');
-//     ctx.response.set('Access-Control-Allow-Methods', 'DELETE, PUT, PATCH, GET, POST');
-//     ctx.response.status = 204;
-// }); 
-
-// app.use((req, res, next) => {
+// app.use(function(req, res, next) {
 //     res.header("Access-Control-Allow-Origin", "https://mariza0.github.io/ahj-http-frontend/");
 //     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 //     next();
 // });
 
-// app.use((req, res, next) => {
+// app.use(function(req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "http://localhost:8080/");
 //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 //   next();
 // });
+
+app.use((ctx, next) => {  
+
+    if (ctx.request.url === '/') {
+
+        ctx.response.set('Access-Control-Allow-Origin', '*');
+        ctx.response.body = 'Hello, World!';
+        return;
+      }
+
+    if (ctx.request.method !== 'OPTIONS') {
+        next();
+        return;
+    }
+    ctx.response.set('Access-Control-Allow-Origin', 'http://localhost:8080/');
+    ////
+    ctx.response.set("Access-Control-Allow-Origin", "https://mariza0.github.io/ahj-http-frontend/");
+    ////
+    ctx.response.set('Access-Control-Allow-Methods', 'DELETE, PUT, PATCH, GET, POST');
+    ctx.response.status = 204;
+}); 
 
 
 app.use(async ctx => {
