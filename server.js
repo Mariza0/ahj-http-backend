@@ -157,9 +157,9 @@ app.use(async ctx => {
 
         case 'deleteTicket' :
 
-            console.log('удаление');
-            ctx.response.set('Access-Control-Allow-Origin', '*');
-            ctx.response.set('Access-Control-Allow-Headers', 'Content-Type, Authorization, access-control-allow-headers; charset=UTF-8');
+            // console.log('удаление');
+            // ctx.response.set('Access-Control-Allow-Origin', '*');
+            // ctx.response.set('Access-Control-Allow-Headers', 'Content-Type, Authorization, access-control-allow-headers; charset=UTF-8');
 
             ctx.response.set('Access-Control-Allow-Methods', 'DELETE');
             
