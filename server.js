@@ -30,38 +30,6 @@ app.use(koaBody({
     multipart: true,
 }));
 
-// app.use((ctx, next) => {  
-
-//     if (ctx.request.url === '/') {
-
-//         ctx.response.set('Access-Control-Allow-Origin', '*');
-//         ctx.response.body = 'Hello, World!';
-//         return;
-//       }
-
-//     if (ctx.request.method !== 'OPTIONS') {
-//         next();
-//         return;
-//     }
-
-//     ctx.response.set('Access-Control-Allow-Origin', '*');
-//     ctx.response.set('Access-Control-Allow-Methods', 'DELETE, PUT, PATCH, GET, POST');
-//     ctx.response.status = 204;
-    // next();
-//});
-
-// app.use((ctx, next) => {
-//     ctx.response.set('Access-Control-Allow-Origin', 'http://localhost:8080/');
-//     ctx.response.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     next();
-// });
-
-// app.use((ctx, next) => {
-//     ctx.response.set('Access-Control-Allow-Origin', 'https://mariza0.github.io/ahj-http-frontend/');
-//     ctx.response.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     next();
-// });
-
 app.use((ctx, next) => {  
     if (ctx.request.url === '/') {
         ctx.response.set('Access-Control-Allow-Origin', '*');
@@ -78,7 +46,6 @@ app.use((ctx, next) => {
 app.use(function(ctx, next) {
     ctx.response.set("Access-Control-Allow-Origin", "*");
     ctx.response.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    ctx.response.set('Access-Control-Allow-Methods', 'DELETE, PUT, PATCH, GET, POST');
     next();
 });
 
