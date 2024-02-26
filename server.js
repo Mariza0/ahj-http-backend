@@ -47,7 +47,7 @@ app.use((ctx, next) => {
     ctx.response.set('Access-Control-Allow-Origin', '*');
     ctx.response.set('Access-Control-Allow-Methods', 'DELETE, PUT, PATCH, GET, POST');
     ctx.response.status = 204;
-    next();
+    // next();
 });
 
 app.use((ctx, next) => {
@@ -56,11 +56,11 @@ app.use((ctx, next) => {
     next();
 });
 
-app.use((ctx, next) => {
-    ctx.response.set('Access-Control-Allow-Origin', 'https://mariza0.github.io/ahj-http-frontend/');
-    ctx.response.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+// app.use((ctx, next) => {
+//     ctx.response.set('Access-Control-Allow-Origin', 'https://mariza0.github.io/ahj-http-frontend/');
+//     ctx.response.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
 
 app.use(async ctx => {
     const method  = ctx.request.query.method;
