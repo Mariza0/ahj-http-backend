@@ -78,6 +78,7 @@ app.use((ctx, next) => {
 app.use(function(ctx, next) {
     ctx.response.set("Access-Control-Allow-Origin", "*");
     ctx.response.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    ctx.response.set('Access-Control-Allow-Methods', 'DELETE, PUT, PATCH, GET, POST');
     next();
 });
 
